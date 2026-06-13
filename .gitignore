@@ -1,0 +1,22 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Project-specific ignored files
+backend/.venv/
+backend/data/
+backend/generated_certificates/
+backend/templates/certificate_template.docx
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
