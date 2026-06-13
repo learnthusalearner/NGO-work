@@ -2,12 +2,18 @@ from __future__ import annotations
 
 import sqlite3
 from contextlib import contextmanager
+import os
 from pathlib import Path
 from typing import Any, Generator
 
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
-DATABASE_PATH = DATA_DIR / "volunteers.db"
+DATABASE_PATH_ENV = os.environ.get("DATABASE_PATH")
+if DATABASE_PATH_ENV:
+    DATABASE_PATH = Path(DATABASE_PATH_ENV)
+    DATA_DIR = DATABASE_PATH.parent
+else:
+    DATA_DIR = BASE_DIR / "data"
+    DATABASE_PATH = DATA_DIR / "volunteers.db"
 
 
 @contextmanager
