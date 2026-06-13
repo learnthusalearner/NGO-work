@@ -304,17 +304,11 @@ def ensure_certificate_template() -> Path:
             return TEMPLATE_PATH
 
         document = Document()
-        document.add_heading("Certificate of Volunteering", level=0)
-        intro = document.add_paragraph("This certificate is proudly presented to ")
-        intro.add_run("{{NAME}}").bold = True
-        document.add_paragraph(
-            "For dedicated service with NayePankh Foundation as {{ROLE}}."
-        )
-        document.add_paragraph("Volunteer duration: {{DURATION}}")
-        document.add_paragraph(
-            "Your contribution has helped strengthen our community impact."
-        )
-        document.add_paragraph("Issued by NayePankh Foundation")
+        document.add_heading("Dummy Volunteer Certificate", level=0)
+        document.add_paragraph("This is a dummy certificate file.")
+        document.add_paragraph("Volunteer Name: {{NAME}}")
+        document.add_paragraph("Volunteer Role: {{ROLE}}")
+        document.add_paragraph("Volunteer Duration: {{DURATION}}")
         document.save(TEMPLATE_PATH)
         return TEMPLATE_PATH
     except (OSError, PermissionError) as exc:
